@@ -1,7 +1,14 @@
-const { generateTheme } = require("antd-theme-generator");
+/*
+ * @Author: RongWei
+ * @Date: 2021-09-13 20:31:07
+ * @LastEditors: RongWei
+ * @LastEditTime: 2021-09-14 11:27:43
+ * @Description: file content
+ */
+const { generateTheme } = require("mk-theme-generator");
 const path = require("path");
 
-class AntDesignThemePlugin {
+class MKThemePlugin {
   constructor(options) {
     const defaulOptions = {
       varFile: path.join(__dirname, "../../src/styles/variables.less"),
@@ -21,7 +28,7 @@ class AntDesignThemePlugin {
 
   apply(compiler) {
     const options = this.options;
-    compiler.plugin("emit", function(compilation, callback) {
+    compiler.plugin("emit", function (compilation, callback) {
       const less = `
     <link rel="stylesheet/less" type="text/css" href="${options.publicPath}/color.less" />
     <script>
@@ -71,4 +78,4 @@ class AntDesignThemePlugin {
   }
 }
 
-module.exports = AntDesignThemePlugin;
+module.exports = MKThemePlugin;

@@ -15,14 +15,6 @@ ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
-antd-theme-generator@1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/antd-theme-generator/-/antd-theme-generator-1.0.6.tgz#e98fb61465dff132617ee95613b646cfc5ab0f3c"
-  dependencies:
-    less "^2.7.2"
-    less-bundle-promise "1.0.4"
-    postcss "^6.0.21"
-
 asap@~2.0.3:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.6.tgz#e50347611d7e690943208bbdafebcbc2fb866d46"
@@ -180,6 +172,14 @@ has-flag@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-3.0.0.tgz#b5d454dc2199ae225699f3467e5a07f3b955bafd"
 
+hash.js@^1.1.5:
+  version "1.1.7"
+  resolved "https://npmjs-dev.maycur.com/hash.js/-/hash.js-1.1.7.tgz#0babca538e8d4ee4a0f8988d68866537a003cf42"
+  integrity sha512-taOaskGt4z4SOANNseOviYDvjEJinIkRgmp7LbKP2YTTmVxWBl87s/uzK9r+44BclBSp2X7K1hqeNfz9JbBeXA==
+  dependencies:
+    inherits "^2.0.3"
+    minimalistic-assert "^1.0.1"
+
 hawk@~3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/hawk/-/hawk-3.1.3.tgz#078444bd7c1640b0fe540d2c9b73d59678e8e1c4"
@@ -204,6 +204,11 @@ http-signature@~1.1.0:
 image-size@~0.5.0:
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.5.5.tgz#09dfd4ab9d20e29eb1c3e80b8990378df9e3cb9c"
+
+inherits@^2.0.3:
+  version "2.0.4"
+  resolved "https://npmjs-dev.maycur.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
+  integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
 
 is-typedarray@~1.0.0:
   version "1.0.0"
@@ -244,9 +249,18 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-less-bundle-promise@1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/less-bundle-promise/-/less-bundle-promise-1.0.4.tgz#680b07bf2396feffff26fe51f91b2415ccaa2c79"
+less-bundle-promise@1.0.7:
+  version "1.0.7"
+  resolved "https://npmjs-dev.maycur.com/less-bundle-promise/-/less-bundle-promise-1.0.7.tgz#198d7991ac4f5f3c7862fac1074c7b9aca7b9cb2"
+  integrity sha512-B4mN+YtkOxAPUHyorhup+ETVNZ9E1PO65sPhgPvDDHDVtR1oYRd87EbYVYOsU0Oev0MW/6MSouS5QYlhe7XrzA==
+
+less-plugin-npm-import@^2.1.0:
+  version "2.1.0"
+  resolved "https://npmjs-dev.maycur.com/less-plugin-npm-import/-/less-plugin-npm-import-2.1.0.tgz#823e6986c93318a98171ca858848b6bead55bf3e"
+  integrity sha1-gj5phskzGKmBccqFiEi2vq1Vvz4=
+  dependencies:
+    promise "~7.0.1"
+    resolve "~1.1.6"
 
 less@^2.7.2:
   version "2.7.3"
@@ -275,9 +289,25 @@ mime@^1.2.11:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
 
+minimalistic-assert@^1.0.1:
+  version "1.0.1"
+  resolved "https://npmjs-dev.maycur.com/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz#2e194de044626d4a10e7f7fbc00ce73e83e4d5c7"
+  integrity sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==
+
 minimist@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
+
+mk-theme-generator@1.0.0:
+  version "1.0.0"
+  resolved "https://npmjs-dev.maycur.com/mk-theme-generator/-/mk-theme-generator-1.0.0.tgz#151efc4607bafe9e6c6d8bc80fe9fc357a8cbfa2"
+  integrity sha512-TLvgWx5CMUqzzTGCzs1hsgG1C6HCJ1E+9Xi+Fa0MMRjFnIHRjqsgDJRZ7cLxLmK4NrLnlPko5jhVNOASeQ+7UQ==
+  dependencies:
+    hash.js "^1.1.5"
+    less "^2.7.2"
+    less-bundle-promise "1.0.7"
+    less-plugin-npm-import "^2.1.0"
+    postcss "^6.0.21"
 
 mkdirp@^0.5.0:
   version "0.5.1"
@@ -304,6 +334,13 @@ postcss@^6.0.21:
 promise@^7.1.1:
   version "7.3.1"
   resolved "https://registry.yarnpkg.com/promise/-/promise-7.3.1.tgz#064b72602b18f90f29192b8b1bc418ffd1ebd3bf"
+  dependencies:
+    asap "~2.0.3"
+
+promise@~7.0.1:
+  version "7.0.4"
+  resolved "https://npmjs-dev.maycur.com/promise/-/promise-7.0.4.tgz#363e84a4c36c8356b890fed62c91ce85d02ed539"
+  integrity sha1-Nj6EpMNsg1a4kP7WLJHOhdAu1Tk=
   dependencies:
     asap "~2.0.3"
 
@@ -345,6 +382,11 @@ request@2.81.0:
     tough-cookie "~2.3.0"
     tunnel-agent "^0.6.0"
     uuid "^3.0.0"
+
+resolve@~1.1.6:
+  version "1.1.7"
+  resolved "https://npmjs-dev.maycur.com/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
+  integrity sha1-IDEU2CrSxe2ejgQRs5ModeiJ6Xs=
 
 safe-buffer@^5.0.1:
   version "5.1.2"

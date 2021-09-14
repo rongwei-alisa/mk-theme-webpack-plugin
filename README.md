@@ -1,4 +1,4 @@
-# antd-theme-webpack-plugin
+# mk-theme-webpack-plugin
 
 This webpack plugin is to  generate color specific less/css and inject into your `index.html` file so 
 that you can change Ant Design specific color theme in browser.
@@ -8,7 +8,7 @@ Live Theme Demo: https://antd-live-theme.firebaseapp.com/
 In order to integrate with your webpack configurations, install the package and add following code in your webpack config file.
 
 ```js
-const AntDesignThemePlugin = require('antd-theme-webpack-plugin');
+const MKThemePlugin = require('mk-theme-webpack-plugin');
 
 const options = {
   antDir: path.join(__dirname, './node_modules/antd'),
@@ -20,7 +20,7 @@ const options = {
   generateOnce: false
 }
 
-const themePlugin = new AntDesignThemePlugin(options);
+const themePlugin = new MKThemePlugin(options);
 // in config object
 plugins: [
     themePlugin

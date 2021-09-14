@@ -1,13 +1,13 @@
 {
-  "name": "antd-theme-webpack-plugin",
-  "version": "1.1.9",
-  "description": "A webpack plugin to provide Dynamic Theme for Ant Design",
+  "name": "mk-theme-webpack-plugin",
+  "version": "1.0.1",
+  "description": "A webpack plugin to provide Dynamic Theme for Maycur Ant Design and Maycur Business",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "antd-theme-generator": "1.1.4",
+    "mk-theme-generator": "1.0.0",
     "less-bundle-promise": "1.0.7",
     "postcss": "^6.0.21"
   },
@@ -27,7 +27,8 @@
     "css",
     "theme",
     "dynamic-theme",
-    "webpack"
+    "webpack",
+    "maycur-business"
   ],
   "license": "ISC"
 }
