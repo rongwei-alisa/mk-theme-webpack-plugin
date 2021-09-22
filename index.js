@@ -2,7 +2,7 @@
  * @Author: RongWei
  * @Date: 2021-09-13 20:31:07
  * @LastEditors: RongWei
- * @LastEditTime: 2021-09-14 11:27:43
+ * @LastEditTime: 2021-09-22 16:18:10
  * @Description: file content
  */
 const { generateTheme } = require("mk-theme-generator");
@@ -34,7 +34,8 @@ class MKThemePlugin {
     <script>
       window.less = {
         async: false,
-        env: 'production'
+        env: 'production',
+        javascriptEnabled: true
       };
     </script>
     <script type="text/javascript" src="${options.lessUrl}"></script>

@@ -1,23 +1,23 @@
 {
   "name": "mk-theme-webpack-plugin",
-  "version": "1.0.9",
+  "version": "1.0.12",
   "description": "A webpack plugin to provide Dynamic Theme for Maycur Ant Design and Maycur Business",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "mk-theme-generator": "1.0.8",
+    "mk-theme-generator": "1.0.10",
     "less-bundle-promise": "1.0.7",
     "postcss": "^6.0.21"
   },
   "author": {
-    "name": "mzohaibqc",
-    "url": "https://github.com/mzohaibqc"
+    "name": "rongwei-alisa",
+    "url": "https://github.com/rongwei-alisa"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mzohaibqc/antd-theme-webpack-plugin"
+    "url": "git@github.com:rongwei-alisa/mk-theme-webpack-plugin.git"
   },
   "keywords": [
     "antd",
