@@ -1,13 +1,13 @@
 {
-  "name": "mk-theme-webpack-plugin",
-  "version": "1.0.12",
+  "name": "@maycur/theme-webpack-plugin",
+  "version": "1.0.13",
   "description": "A webpack plugin to provide Dynamic Theme for Maycur Ant Design and Maycur Business",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "mk-theme-generator": "1.0.10",
+    "@maycur/theme-generator": "latest",
     "less-bundle-promise": "1.0.7",
     "postcss": "^6.0.21"
   },

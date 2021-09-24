@@ -8,13 +8,12 @@ Live Theme Demo: https://antd-live-theme.firebaseapp.com/
 In order to integrate with your webpack configurations, install the package and add following code in your webpack config file.
 
 ```js
-const MKThemePlugin = require('mk-theme-webpack-plugin');
+const MKThemePlugin = require('@maycur/theme-webpack-plugin');
 
 const options = {
-  antDir: path.join(__dirname, './node_modules/antd'),
+  antdStylesDir: path.join(__dirname, './node_modules/antd/lib'),
   stylesDir: path.join(__dirname, './src/styles'),
   varFile: path.join(__dirname, './src/styles/variables.less'),
-  mainLessFile: path.join(__dirname, './src/styles/index.less'),
   themeVariables: ['@primary-color'],
   indexFileName: 'index.html',
   generateOnce: false
@@ -32,7 +31,7 @@ Add this plugin in `plugins` array.
 - Default html file name
   - index.html
 - Ant Design deafult path
-  - /node_modules/antd
+  - /node_modules/antd/lib
 - Default styles directory
   - /src/styles
 - Default variables file path

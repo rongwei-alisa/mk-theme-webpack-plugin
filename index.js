@@ -2,18 +2,17 @@
  * @Author: RongWei
  * @Date: 2021-09-13 20:31:07
  * @LastEditors: RongWei
- * @LastEditTime: 2021-09-22 16:18:10
+ * @LastEditTime: 2021-09-24 15:28:37
  * @Description: file content
  */
-const { generateTheme } = require("mk-theme-generator");
+const { generateTheme } = require("@maycur/theme-generator");
 const path = require("path");
 
 class MKThemePlugin {
   constructor(options) {
     const defaulOptions = {
       varFile: path.join(__dirname, "../../src/styles/variables.less"),
-      mainLessFile: path.join(__dirname, "../../src/styles/index.less"),
-      antDir: path.join(__dirname, "../../node_modules/antd"),
+      antdStylesDir: path.join(__dirname, "../../node_modules/antd/lib"),
       stylesDir: path.join(__dirname, "../../src/styles/antd"),
       themeVariables: ["@primary-color"],
       indexFileName: "index.html",
