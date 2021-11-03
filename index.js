@@ -2,7 +2,7 @@
  * @Author: RongWei
  * @Date: 2021-09-13 20:31:07
  * @LastEditors: RongWei
- * @LastEditTime: 2021-09-24 15:28:37
+ * @LastEditTime: 2021-11-03 17:49:00
  * @Description: file content
  */
 const { generateTheme } = require("@maycur/theme-generator");
@@ -48,7 +48,7 @@ class MKThemePlugin {
 
         if (!content.match(/\/color\.less/g)) {
           index.source = () =>
-            content.replace(less, "").replace(/<body>/gi, `<body>${less}`);
+            content.replace(less, "").replace(/<body(.*)>/gi, `<body$1>${less}`);
           content = index.source();
           index.size = () => content.length;
         }
