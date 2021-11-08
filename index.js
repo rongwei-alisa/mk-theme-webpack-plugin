@@ -2,7 +2,7 @@
  * @Author: RongWei
  * @Date: 2021-09-13 20:31:07
  * @LastEditors: RongWei
- * @LastEditTime: 2021-11-03 17:49:00
+ * @LastEditTime: 2021-11-08 17:44:44
  * @Description: file content
  */
 const { generateTheme } = require("@maycur/theme-generator");
@@ -32,7 +32,7 @@ class MKThemePlugin {
     <link rel="stylesheet/less" type="text/css" href="${options.publicPath}/color.less" />
     <script>
       window.less = {
-        async: false,
+        async: true,
         env: 'production',
         javascriptEnabled: true
       };
