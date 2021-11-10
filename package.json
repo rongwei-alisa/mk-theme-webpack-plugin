@@ -1,6 +1,6 @@
 {
   "name": "@maycur/theme-webpack-plugin",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "A webpack plugin to provide Dynamic Theme for Maycur Ant Design and Maycur Business",
   "main": "index.js",
   "scripts": {

@@ -2,7 +2,7 @@
  * @Author: RongWei
  * @Date: 2021-09-13 20:31:07
  * @LastEditors: RongWei
- * @LastEditTime: 2021-11-08 17:44:44
+ * @LastEditTime: 2021-11-10 11:28:28
  * @Description: file content
  */
 const { generateTheme } = require("@maycur/theme-generator");
@@ -32,7 +32,7 @@ class MKThemePlugin {
     <link rel="stylesheet/less" type="text/css" href="${options.publicPath}/color.less" />
     <script>
       window.less = {
-        async: true,
+        async: false,
         env: 'production',
         javascriptEnabled: true
       };
@@ -48,7 +48,7 @@ class MKThemePlugin {
 
         if (!content.match(/\/color\.less/g)) {
           index.source = () =>
-            content.replace(less, "").replace(/<body(.*)>/gi, `<body$1>${less}`);
+            content.replace(less, "").replace(/<body(.*?)>/gi, `<body$1>${less}`);
           content = index.source();
           index.size = () => content.length;
         }
