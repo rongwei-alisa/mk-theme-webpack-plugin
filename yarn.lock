@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@maycur/theme-generator@^1.0.16":
-  version "1.0.16"
-  resolved "https://npmjs-dev.maycur.com/@maycur%2ftheme-generator/-/theme-generator-1.0.16.tgz#dc4114af2c0cee372728c252f5e484701db554e9"
-  integrity sha512-HWG4q/bjkETTaFgLda4H+oRtVYgHpTvEm0qjjtVNk4clJuuBqkZYX0qDJMCcu+f4w7BU8b2PnqvequKLYu5GHQ==
+"@maycur/theme-generator@^1.0.18":
+  version "1.0.18"
+  resolved "https://npmjs-dev.maycur.com/@maycur%2ftheme-generator/-/theme-generator-1.0.18.tgz#cc55f6e4e49c44bf8c03533e3ccfbeeec44d5e3a"
+  integrity sha512-4oOrsQr7i8td095wakm+fiO0G6qa4v1VQ2aqI/D3+tNYSZUGT67C0PoIGHyUUTjs7zFo8xbXtQGuir7oPyRnXA==
   dependencies:
     hash.js "^1.1.5"
     less "3.7.0"

@@ -2,11 +2,12 @@
  * @Author: RongWei
  * @Date: 2021-09-13 20:31:07
  * @LastEditors: RongWei
- * @LastEditTime: 2021-11-10 11:28:28
+ * @LastEditTime: 2021-11-22 17:38:30
  * @Description: file content
  */
 const { generateTheme } = require("@maycur/theme-generator");
 const path = require("path");
+const fs = require("fs");
 
 class MKThemePlugin {
   constructor(options) {
@@ -19,7 +20,8 @@ class MKThemePlugin {
       generateOnce: false,
       lessUrl:
         "https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js",
-      publicPath: ""
+      publicPath: "",
+      async: false
     };
     this.options = Object.assign(defaulOptions, options);
     this.generated = false;
@@ -32,7 +34,7 @@ class MKThemePlugin {
     <link rel="stylesheet/less" type="text/css" href="${options.publicPath}/color.less" />
     <script>
       window.less = {
-        async: false,
+        async: ${options.async},
         env: 'production',
         javascriptEnabled: true
       };
@@ -75,6 +77,37 @@ class MKThemePlugin {
           callback(err);
         });
     });
+
+    compiler.hooks.done.tapPromise(
+      this.constructor.name,
+      (stats) => {
+        return new Promise((resolve, reject) => {
+          const insertStr = `
+          (function () {
+            var head = document.getElementsByTagName('head')[0];
+            var link = document.createElement('link');
+            link.type = 'text/css';
+            link.rel = 'stylesheet/less';
+            link.href = '${options.publicPath}/color.less';
+            head.appendChild(link);
+
+            window.less = {
+              async: false,
+              env: 'production',
+              javascriptEnabled: true
+            };
+            var scriptEle = document.createElement('script');
+            scriptEle.type = 'text/javascript';
+            scriptEle.src = '${options.lessUrl}';
+            head.appendChild(scriptEle);
+          })();
+          `;
+          fs.writeFile('dist/themeScript.js', insertStr, 'utf8', error => {
+            resolve();
+          });
+        });
+      }
+    );
   }
 }
 
