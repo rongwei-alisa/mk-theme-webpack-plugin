@@ -2,7 +2,7 @@
  * @Author: RongWei
  * @Date: 2021-09-13 20:31:07
  * @LastEditors: RongWei
- * @LastEditTime: 2021-11-22 17:38:30
+ * @LastEditTime: 2021-11-25 17:04:37
  * @Description: file content
  */
 const { generateTheme } = require("@maycur/theme-generator");
@@ -78,7 +78,7 @@ class MKThemePlugin {
         });
     });
 
-    compiler.hooks.done.tapPromise(
+    compiler.hooks && compiler.hooks.done.tapPromise(
       this.constructor.name,
       (stats) => {
         return new Promise((resolve, reject) => {
