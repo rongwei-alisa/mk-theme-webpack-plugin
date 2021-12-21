@@ -2,7 +2,7 @@
  * @Author: RongWei
  * @Date: 2021-09-13 20:31:07
  * @LastEditors: RongWei
- * @LastEditTime: 2021-11-25 17:04:37
+ * @LastEditTime: 2021-12-21 16:56:10
  * @Description: file content
  */
 const { generateTheme } = require("@maycur/theme-generator");
@@ -19,7 +19,7 @@ class MKThemePlugin {
       indexFileName: "index.html",
       generateOnce: false,
       lessUrl:
-        "https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js",
+        "https://cmimg.maycur.com/dt/static/less.min.js",
       publicPath: "",
       async: false
     };
