@@ -88,120 +88,19 @@ class MKThemePlugin {
 
       })
     });
-    // compiler.hooks.emit.tap(pluginName, (compilation) => {           
-    // const less = `
-    //   <link rel="stylesheet/less" type="text/css" href="${options.publicPath}/color.less" />
-    //   <script>
-    //     window.less = {
-    //       async: ${options.async},
-    //       env: 'production',
-    //       javascriptEnabled: true
-    //     };
-    //   </script>
-    //   <script type="text/javascript" src="${options.lessUrl}"></script>
-    // `;
-    // if (
-    //   options.indexFileName &&
-    //   options.indexFileName in compilation.assets
-    // ) {
-    //   const file = compilation.getAsset(options.indexFileName);
-    //   compilation.updateAsset(
-    //     options.indexFileName,
-    //     new sources.RawSource(file.source.source().replace(less, "").replace(/<body(.*?)>/gi, `<body$1>${less}`))
-    //   );
-    // }
-    // })
-
-    // compiler.hooks.thisCompilation.tap(pluginName, (compilation) => {
-    //   // Tapping to the assets processing pipeline on a specific stage.
-    //   compilation.hooks.processAssets.tapAsync({
-    //     name: pluginName,
-    //     stage: Compilation.PROCESS_ASSETS_STAGE_SUMMARIZE,
-    //   }, (assets, callback) => {
-    //     if (hasColorLess) {
-    //       if (typeof callback === 'function') callback();
-    //     } else {
-    //       generateTheme(options)
-    //         .then(css => {
-    //           if (options.generateOnce) {
-    //             this.colors = css;
-    //           }
-    //           hasColorLess = true;
-    //           compilation.emitAsset(
-    //             'color.less',
-    //             new RawSource(css),
-    //           )
-    //           if (typeof callback === 'function') callback();
-    //         })
-    //         .catch(err => {
-    //           if (typeof callback === 'function') callback(err);
-    //         });
-    //     }
-
-    //   })
-    // })
-
-    // compiler.plugin("emit", function (compilation, callback) {
-    //   const less = `
-    // <link rel="stylesheet/less" type="text/css" href="${options.publicPath}/color.less" />
-    // <script>
-    //   window.less = {
-    //     async: ${options.async},
-    //     env: 'production',
-    //     javascriptEnabled: true
-    //   };
-    // </script>
-    // <script type="text/javascript" src="${options.lessUrl}"></script>
-    //     `;
-    //   if (
-    //     options.indexFileName &&
-    //     options.indexFileName in compilation.assets
-    //   ) {
-    //     const index = compilation.assets[options.indexFileName];
-    //     let content = index.source();
-
-    //     if (!content.match(/\/color\.less/g)) {
-    //       index.source = () =>
-    //         content.replace(less, "").replace(/<body(.*?)>/gi, `<body$1>${less}`);
-    //       content = index.source();
-    //       index.size = () => content.length;
-    //     }
-    //   }
-    //   if (options.generateOnce && this.colors) {
-    //     compilation.assets["color.less"] = {
-    //       source: () => this.colors,
-    //       size: () => this.colors.length
-    //     };
-    //     return callback();
-    //   }
-    //   generateTheme(options)
-    //     .then(css => {
-    //       if (options.generateOnce) {
-    //         this.colors = css;
-    //       }
-    //       compilation.assets["color.less"] = {
-    //         source: () => css,
-    //         size: () => css.length
-    //       };
-    //       callback();
-    //     })
-    //     .catch(err => {
-    //       callback(err);
-    //     });
-    // });
-
+    
     compiler.hooks && compiler.hooks.done.tapPromise(
       this.constructor.name,
       (stats) => {
         return new Promise((resolve, reject) => {
           const insertStr = `
-          (function () {
-            var head = document.getElementsByTagName('head')[0];
+          window.addEventListener('load', function(event) {
+            var body = document.getElementsByTagName('body')[0];
             var link = document.createElement('link');
             link.type = 'text/css';
             link.rel = 'stylesheet/less';
             link.href = '${options.publicPath}/color.less';
-            head.appendChild(link);
+            body.appendChild(link);
 
             window.less = {
               async: false,
@@ -211,8 +110,8 @@ class MKThemePlugin {
             var scriptEle = document.createElement('script');
             scriptEle.type = 'text/javascript';
             scriptEle.src = '${options.lessUrl}';
-            head.appendChild(scriptEle);
-          })();
+            body.appendChild(scriptEle);
+          });          
           `;
           fs.writeFile('dist/themeScript.js', insertStr, 'utf8', error => {
             resolve();
