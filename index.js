@@ -88,30 +88,38 @@ class MKThemePlugin {
 
       })
     });
-    
+
     compiler.hooks && compiler.hooks.done.tapPromise(
       this.constructor.name,
       (stats) => {
         return new Promise((resolve, reject) => {
           const insertStr = `
-          window.addEventListener('load', function(event) {
-            var body = document.getElementsByTagName('body')[0];
-            var link = document.createElement('link');
-            link.type = 'text/css';
-            link.rel = 'stylesheet/less';
-            link.href = '${options.publicPath}/color.less';
-            body.appendChild(link);
+          (function(){
+            var pageState = document.readyState;
+            if(pageState === 'complete'){
+              _loadLess();
+            }else{
+              window.addEventListener('load',_loadLess);
+            }
+            function _loadLess(){
+              var body = document.getElementsByTagName('body')[0];
+              var link = document.createElement('link');
+              link.type = 'text/css';
+              link.rel = 'stylesheet/less';
+              link.href = '${options.publicPath}/color.less';
+              body.appendChild(link);
 
-            window.less = {
-              async: false,
-              env: 'production',
-              javascriptEnabled: true
-            };
-            var scriptEle = document.createElement('script');
-            scriptEle.type = 'text/javascript';
-            scriptEle.src = '${options.lessUrl}';
-            body.appendChild(scriptEle);
-          });          
+              window.less = {
+                async: false,
+                env: 'production',
+                javascriptEnabled: true
+              };
+              var scriptEle = document.createElement('script');
+              scriptEle.type = 'text/javascript';
+              scriptEle.src = '${options.lessUrl}';
+              body.appendChild(scriptEle);
+            }
+          })();               
           `;
           fs.writeFile('dist/themeScript.js', insertStr, 'utf8', error => {
             resolve();
